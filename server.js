@@ -10,7 +10,13 @@ const io = socketIo(server);
 
 const upload = multer({ dest: 'uploads/' });
 
-app.use(express.static('public'));
+// Serve i file statici dalla cartella 'public'
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve il file index.html quando qualcuno visita la root '/'
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.post('/upload', upload.single('file'), (req, res) => {
   res.json({ file: req.file.filename });
@@ -32,6 +38,7 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log('Server attivo su http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server attivo su http://localhost:${PORT}`);
 });
