@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Sync App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Carica una Canzone e Sincronizza la Riproduzione</h1>
+
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" id="fileInput" name="file" />
+    <button type="submit">Carica</button>
+  </form>
+
+  <audio id="audioPlayer" controls></audio>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
