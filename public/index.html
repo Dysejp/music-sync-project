@@ -1,22 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Sync App</title>
+  <title>Music Sync Project</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Carica una Canzone e Sincronizza la Riproduzione</h1>
 
-  <form id="uploadForm" enctype="multipart/form-data">
-    <input type="file" id="fileInput" name="file" />
-    <button type="submit">Carica</button>
-  </form>
+  <!-- Header -->
+  <header>
+    <h1>Music Sync Project</h1>
+  </header>
 
-  <audio id="audioPlayer" controls></audio>
+  <!-- Main Content -->
+  <main>
+    <section id="audio-section">
+      <h2>Carica una Canzone e Sincronizza la Riproduzione</h2>
 
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="app.js"></script>
+      <!-- Form di caricamento -->
+      <form id="uploadForm" enctype="multipart/form-data" method="POST">
+        <input type="file" id="fileInput" name="file" accept="audio/*">
+        <button type="submit">Carica</button>
+      </form>
+
+      <!-- Player audio -->
+      <audio id="audioPlayer" controls>
+        Il tuo browser non supporta l'elemento audio.
+      </audio>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Music Sync Project. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script src="app.js"></script> <!-- Collegamento al file JavaScript -->
 </body>
 </html>

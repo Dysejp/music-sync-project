@@ -17,13 +17,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Serve i file caricati dalla cartella 'uploads'
 app.use('/uploads', express.static('uploads'));
 
-// Route per servire il file index.html quando viene visitata la root '/'
+// Route per servire il file index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Gestione del caricamento dei file tramite Multer
 app.post('/upload', upload.single('file'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).send('Nessun file caricato');
+  }
   res.json({ file: req.file.filename });
 });
 
