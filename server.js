@@ -8,20 +8,26 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
+// Configura Multer per salvare i file nella cartella 'uploads'
 const upload = multer({ dest: 'uploads/' });
 
 // Serve i file statici dalla cartella 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve il file index.html quando qualcuno visita la root '/'
+// Serve i file caricati dalla cartella 'uploads'
+app.use('/uploads', express.static('uploads'));
+
+// Route per servire il file index.html quando viene visitata la root '/'
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Gestione del caricamento dei file tramite Multer
 app.post('/upload', upload.single('file'), (req, res) => {
   res.json({ file: req.file.filename });
 });
 
+// Gestione della connessione WebSocket
 io.on('connection', (socket) => {
   console.log('Nuovo utente connesso');
 
@@ -38,6 +44,7 @@ io.on('connection', (socket) => {
   });
 });
 
+// Imposta la porta per il server
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server attivo su http://localhost:${PORT}`);
