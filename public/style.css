@@ -1,7 +1,7 @@
 /* Stili generali */
 body {
   font-family: 'Arial', sans-serif;
-  font-weight: bold; /* Font grassetto e minimal */
+  font-weight: bold;
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, #000000, #4c4c4c); /* Sfondo gradiente nero-grigio */
@@ -13,7 +13,7 @@ header {
   color: white;
   padding: 1.5rem;
   text-align: center;
-  font-size: 2.5rem; /* Testo grande e grassetto */
+  font-size: 2.5rem;
 }
 
 main {
@@ -42,7 +42,7 @@ h1, h2 {
 
 /* Stile per il form */
 input[type="file"], button {
-  font-size: 1.5rem; /* Testo e pulsanti più grandi */
+  font-size: 1.5rem;
   padding: 1.2rem;
   border-radius: 8px;
   border: none;
@@ -69,4 +69,58 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+/* Media queries per schermi più piccoli */
+@media (max-width: 768px) {
+  header {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+
+  main {
+    padding: 1.5rem;
+  }
+
+  #audio-section {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  input[type="file"], button {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+
+  footer {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  header {
+    font-size: 1.5rem;
+  }
+
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+
+  input[type="file"], button {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  #audio-section {
+    padding: 0.5rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
 }

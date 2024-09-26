@@ -20,10 +20,10 @@ uploadForm.addEventListener('submit', async (e) => {
 
     const data = await response.json();
 
-    // Imposta il percorso del file caricato nel player audio
+    // Aggiorna il player audio con il percorso del file caricato
     audioPlayer.src = `/uploads/${data.file}`;
-    audioPlayer.load();
-    audioPlayer.play();
+    audioPlayer.load(); // Carica il nuovo file nel player
+    audioPlayer.play(); // Avvia la riproduzione automatica
   } catch (err) {
     console.error('Errore durante il caricamento del file:', err);
   }
