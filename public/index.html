@@ -16,13 +16,14 @@
   <!-- Main Content -->
   <main>
     <section id="audio-section">
-      <h2>Carica una Canzone e Sincronizza la Riproduzione</h2>
+      <h2>Seleziona una Canzone da Riprodurre</h2>
 
-      <!-- Form di caricamento -->
-      <form id="uploadForm" enctype="multipart/form-data" method="POST" action="/upload">
-        <input type="file" id="fileInput" name="file" accept="audio/mp3, audio/*">
-        <button type="submit">Carica</button>
-      </form>
+      <!-- Tendina per selezionare una canzone -->
+      <select id="trackSelect">
+        <option value="audio/song1.mp3">Canzone 1</option>
+        <option value="audio/song2.mp3">Canzone 2</option>
+        <option value="audio/song3.mp3">Canzone 3</option>
+      </select>
 
       <!-- Player audio -->
       <audio id="audioPlayer" controls>
